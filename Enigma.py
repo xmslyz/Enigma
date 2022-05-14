@@ -35,30 +35,3 @@ class MagicBox:
         self.change(line, char, d[n])
         char += step
         n += 1
-
-class Dekoder:
-
-    def __init__(self):
-        pusto=1
-
-    def readCode(self, line=0, char=0, step=1):
-        codeLine = []
-        with open('sample.txt', 'r') as f:
-            for line in f.readlines()[line:line + 1]:
-                x = (list(line))
-                for y in range(1,(len(line)//8)):
-                    dekLine = (x[char])
-                    char = char + step
-                    codeLine.append(dekLine)
-        print(''.join(codeLine))
-        f.close()
-
-
-mb = MagicBox()
-dk = Dekoder()
-
-# chowa zdanie w tekscie
-mb.doIT("Big Brown Fox", 0, 5, 7)
-
-# wyciąga zdanie z zakodowanego tekstu
-dk.readCode(0, 5, 7)
